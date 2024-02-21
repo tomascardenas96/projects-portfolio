@@ -7,7 +7,4 @@ export class CreateNoteDto {
 
     @IsString()
     description: string;
-
-    @IsNotEmpty()
-    user: User;
 }

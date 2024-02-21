@@ -51,7 +51,7 @@ export class AuthService {
       throw new UnauthorizedException('Secret key is missing');
     }
 
-    const payload = { email: user.email, username: user.username };
+    const payload = { email: user.email, username: user.username, user_id: user.user_id };
 
     const token = await this.jwtService.signAsync(payload, { secret });
 

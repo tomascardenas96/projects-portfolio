@@ -1,5 +1,5 @@
 import { User } from 'src/users/entities/user.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn } from 'typeorm';
 
 @Entity()
 export class Note {
@@ -13,5 +13,8 @@ export class Note {
   description: string;
 
   @ManyToOne(() => User, (user) => user.notes)
+  @JoinColumn({
+    name: 'user_id'
+  })
   user: User;
 }

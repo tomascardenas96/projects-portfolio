@@ -26,8 +26,8 @@ export class UsersService {
     });
   }
 
-  findAll() {
-    return `This action returns all users`;
+  findOneById(id: number) {
+    return this.userRepository.find({where: { user_id: id }})
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {

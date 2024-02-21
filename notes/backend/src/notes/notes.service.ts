@@ -4,28 +4,38 @@ import { UpdateNoteDto } from './dto/update-note.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Note } from './entities/note.entity';
 import { Repository } from 'typeorm/repository/Repository';
+import { ActiveUserInterface } from 'src/common/interfaces/Active-user.interface';
+import { User } from 'src/users/entities/user.entity';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class NotesService {
   constructor(
     @InjectRepository(Note) private readonly noteRepository: Repository<Note>,
+    private readonly userService: UsersService
   ) {}
 
-  create(note: CreateNoteDto) {
+  create(note: CreateNoteDto, user: ActiveUserInterface): Promise<Note> {
     try {
-      const newNote = this.noteRepository.create(note);
+      const newNote = this.noteRepository.create({
+        ...note,
+        user: user,
+      });
       return this.noteRepository.save(newNote);
     } catch (error) {
       throw new BadRequestException();
     }
   }
 
-  findAll() {
-    return `This action returns all notes`;
-  }
+  async findAllByUser(user: ActiveUserInterface): Promise<any> {
+    // console.log(user);
+    const findUser = await this.userService.findOneById(user.user_id);
+    console.log(findUser)
 
-  findOne(id: number) {
-    return `This action returns a #${id} note`;
+    return this.noteRepository.find({where: {
+      user: findUser
+    }})
+    // console.log(notes);
   }
 
   update(id: number, updateNoteDto: UpdateNoteDto) {
