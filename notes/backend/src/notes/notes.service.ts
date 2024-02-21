@@ -1,11 +1,23 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Note } from './entities/note.entity';
+import { Repository } from 'typeorm/repository/Repository';
 
 @Injectable()
 export class NotesService {
-  create(createNoteDto: CreateNoteDto) {
-    return 'This action adds a new note';
+  constructor(
+    @InjectRepository(Note) private readonly noteRepository: Repository<Note>,
+  ) {}
+
+  create(note: CreateNoteDto) {
+    try {
+      const newNote = this.noteRepository.create(note);
+      return this.noteRepository.save(newNote);
+    } catch (error) {
+      throw new BadRequestException();
+    }
   }
 
   findAll() {
