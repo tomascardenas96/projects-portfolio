@@ -1,6 +1,7 @@
 import React from "react";
 import useLogin from "../../hooks/useLogin";
 import { Navigate } from "react-router-dom";
+import Loader from "../../components/Loader";
 
 function Login() {
   const { user, handleSubmit, handleChange, error, loading, accessToken } = useLogin();
@@ -33,7 +34,7 @@ function Login() {
         <input type="submit" value="Ingresar" />
       </form>
       {error && <h1>{error.message}</h1>}
-      {loading && <h1>Cargando...</h1>}
+      {loading && <Loader />}
     </section>
   );
 }
