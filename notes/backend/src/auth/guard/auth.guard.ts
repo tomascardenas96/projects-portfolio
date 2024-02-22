@@ -16,14 +16,14 @@ export class AuthGuard implements CanActivate {
 
     const token = this.getTokenFromHeaders(request);
     if (!token) {
-      throw new UnauthorizedException('Invalid token: Access denied');
+      throw new UnauthorizedException('Invalid or expired token: Access denied');
     }
     try {
       const secret = process.env.JWT_SECRET;
       const payload = await this.jwtService.verifyAsync(token, { secret });
       request['user'] = payload;
     } catch (error) {
-      throw new UnauthorizedException('Invalid token: Access denied');
+      throw new UnauthorizedException('Invalid or expired token: Access denied');
     }
     return true;
   }
