@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
-import Home from "../pages/Home/Home";
+import { useState } from "react";
 
 function useLogin() {
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = localStorage.getItem('accessToken');
 
   const [user, setUser] = useState({
     email: "",
@@ -44,7 +42,7 @@ function useLogin() {
     setUser({ ...user, [name]: value });
   }
 
-  return { user, handleSubmit, handleChange, error, loading };
+  return { user, handleSubmit, handleChange, error, loading, accessToken };
 }
 
 export default useLogin;

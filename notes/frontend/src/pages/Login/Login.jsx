@@ -1,8 +1,13 @@
 import React from "react";
 import useLogin from "../../hooks/useLogin";
+import { Navigate } from "react-router-dom";
 
 function Login() {
-  const { user, handleSubmit, handleChange, error, loading } = useLogin();
+  const { user, handleSubmit, handleChange, error, loading, accessToken } = useLogin();
+
+  if(accessToken) {
+    return <Navigate to="/home"/>
+  }
 
   return (
     <section>

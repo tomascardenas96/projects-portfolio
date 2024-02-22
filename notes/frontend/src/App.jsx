@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
+import "./App.css";
 
 function App() {
   return (
