@@ -5,7 +5,7 @@ function Loader() {
   return (
     <div className="loader__container">
       <div>
-        <div class="loadership_OWEWA">
+        <div className="loadership_OWEWA">
           <div></div>
           <div></div>
           <div></div>

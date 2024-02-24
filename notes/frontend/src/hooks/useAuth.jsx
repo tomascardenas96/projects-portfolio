@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useToken() {
+function useAuth() {
   const accessToken = localStorage.getItem("accessToken");
   const [expired, setExpired] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -19,14 +19,14 @@ function useToken() {
 
         const parsedResponse = await response.json();
         if (parsedResponse.error) {
-          localStorage.clear();
+          localStorage.remove("accessToken");
           throw new Error(parsedResponse.error);
         }
       } catch (err) {
         setExpired(true);
         setTimeout(() => {
           location.reload();
-        },2000);
+        }, 2000);
       } finally {
         setLoading(false);
       }
@@ -38,4 +38,4 @@ function useToken() {
   return { accessToken, expired, loading };
 }
 
-export default useToken;
+export default useAuth;

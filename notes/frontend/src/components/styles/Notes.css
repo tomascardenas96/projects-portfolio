@@ -1,0 +1,10 @@
+.notes__container {
+    padding: 2rem;
+}
+
+.notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+
+}

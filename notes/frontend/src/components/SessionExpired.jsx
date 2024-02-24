@@ -8,7 +8,7 @@ function SessionExpired() {
         <h1>Your session has expired</h1>
         <p>Please, login and try again</p>
         <div className="session-expired__modal-loader">
-          <div class="loadership_OWEWA2">
+          <div className="loadership_OWEWA2">
             <div></div>
             <div></div>
             <div></div>
