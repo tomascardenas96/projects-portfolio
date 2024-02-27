@@ -13,11 +13,12 @@ function Notes() {
       <section className="notes__container">
         {notes.length > 0 ? (
           <div className="notes">
-            {notes.map((note) => (
+            {notes.slice().reverse().map((note) => (
               <Note
                 key={note.note_id}
                 title={note.title}
                 description={note.description}
+                id={note.note_id}
               />
             ))}
             {loading && <h1>Loading...</h1>}

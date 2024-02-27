@@ -6,6 +6,7 @@
     grid-template-rows: 2rem 1fr;
     padding: .5rem;
     box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.211);
+    position: relative;
 }
 
 .note__container > h1 {
@@ -20,4 +21,13 @@
 .note__container > p {
     font-size: .8rem;
     margin-top: .5rem;
+}
+
+.note-close {
+    position: absolute;
+    right: .7rem;
+    top: .1rem;
+    font-weight: 300;
+    cursor: pointer;
+    font-size: .9rem !important;
 }
