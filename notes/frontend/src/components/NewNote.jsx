@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/NewNote.css";
 import useAddNote from "../hooks/useAddNote";
 
@@ -6,9 +6,8 @@ function NewNote() {
   const { handleChange, handleSubmit, expired, loading, newNote } =
     useAddNote();
 
-
   return (
-    <div>
+    <div className="new-note__container">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">
           Title
@@ -21,7 +20,7 @@ function NewNote() {
         </label>
         <label htmlFor="description">
           Description
-          <input
+          <textarea
             type="text"
             onChange={handleChange}
             name="description"

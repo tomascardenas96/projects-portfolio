@@ -1,0 +1,49 @@
+.new-note__container {
+    display: grid;
+    place-content: center;
+    padding: 2rem;
+    background-color: #25242c;
+    box-shadow: 1px 1px 1px 1px #25242c;
+}
+
+.new-note__container > form {
+    display: grid;
+    width: 30rem;
+    gap: 1rem;
+
+    & input[type="submit"] {
+        border: none;
+        padding: .7rem;
+        font-size: .8rem;
+        cursor: pointer;
+        background-color: #e59638;
+        color: #fff;
+        border-radius: .2rem;
+    }
+}
+
+.new-note__container > form label {
+    display: grid;
+    width: 100%;
+    font-size: .8rem;
+    color: #fff;
+    gap: .2rem;
+
+    & input {
+        outline: none;
+        padding-left: .4rem;
+        font-size: .8rem;   
+        height: 2rem;
+        color: #25242c;
+    }
+    
+    & textarea{
+        resize: none;
+        height: 5rem;
+        font-size: .8rem;
+        outline: none;
+        padding-left: .4rem;
+        padding-top: .2rem;
+        color: #25242c;
+    }
+}

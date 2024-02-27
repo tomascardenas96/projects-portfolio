@@ -31,10 +31,11 @@ function useNotes() {
       } finally {
         setLoading(false);
       }
+
     };
 
     getNotes();
-  }, [notes]);
+  });
 
   return { notes, loading, expired };
 }

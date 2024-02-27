@@ -5,8 +5,6 @@ import SessionExpired from "../../components/SessionExpired";
 import Loader from "../../components/Loader";
 import "./Home.css";
 import Notes from "../../components/Notes";
-import NewNote from "../../components/NewNote";
-import useAddNote from "../../hooks/useAddNote";
 
 const Home = () => {
   const { accessToken, expired, loading } = useAuth();
@@ -18,7 +16,6 @@ const Home = () => {
 
   return (
     <section>
-      <NewNote />
       <Notes />
       {expired && <SessionExpired />}
       {loading && <Loader />}

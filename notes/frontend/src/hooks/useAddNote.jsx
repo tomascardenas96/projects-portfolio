@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useNotes from "./useNotes";
 
 function useAddNote() {
   const accessToken = localStorage.getItem("accessToken");
@@ -28,7 +27,6 @@ function useAddNote() {
         body: JSON.stringify(newNote),
       });
       const parsedResponse = await response.json();
-      console.log(parsedResponse);
       if (parsedResponse.error) {
         localStorage.remove("accessToken");
         throw new Error(parsedResponse.error);
@@ -39,7 +37,7 @@ function useAddNote() {
       setLoading(false);
       setNewNote({
         title: "",
-        description: ""
+        description: "",
       });
     }
   }
