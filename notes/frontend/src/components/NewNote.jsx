@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import "./styles/NewNote.css";
+import React from "react";
 import useAddNote from "../hooks/useAddNote";
+import "./styles/NewNote.css";
+
 
 function NewNote() {
   const { handleChange, handleSubmit, expired, loading, newNote } =
@@ -29,6 +30,7 @@ function NewNote() {
         </label>
         <input type="submit" value="Agregar" />
       </form>
+      
     </div>
   );
 }

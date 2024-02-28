@@ -1,0 +1,73 @@
+.log-out-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  padding: 0.5rem;
+  color: #25242c;
+  cursor: pointer;
+  display: flex; 
+  gap: .4rem;
+  align-items: center;
+  z-index: 100;
+}
+
+.log-out__spinner {
+    width: 100%;
+    height: 100svh;
+    position: absolute;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.525);
+    box-shadow: 0 0px 0px rgba(176, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.log-out__spinner p {
+  color: white;
+}
+
+.loadership_OWEWA3 {
+  display: flex;
+  width: 29px;
+  height: 29px;
+  position: absolute;
+}
+
+.loadership_OWEWA3 div {
+  position: absolute;
+  top: -1.9rem;
+  left: 0;
+  width: 29px;
+  height: 29px;
+  border: 3px solid #00000033;
+  border-radius: 50%;
+}
+
+.loadership_OWEWA3 div:not(:nth-child(1)) {
+  clip-path: polygon(50% 50%, 0 0, 80% 0);
+  border: 3px solid #ffffff;
+  animation: loadership_OWEWA_spin 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loadership_OWEWA3 div:nth-child(2) {
+  animation-delay: 0s;
+}
+
+.loadership_OWEWA3 div:nth-child(3) {
+  animation-delay: -0.06s;
+}
+
+.loadership_OWEWA3 div:nth-child(4) {
+  animation-delay: -0.11s;
+}
+
+.loadership_OWEWA3 div:nth-child(5) {
+  animation-delay: -0.17s;
+}
+
+.loadership_OWEWA3 div:nth-child(6) {
+  animation-delay: -0.22s;
+}

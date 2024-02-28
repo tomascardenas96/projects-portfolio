@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 function useAddNote() {
   const accessToken = localStorage.getItem("accessToken");
@@ -31,6 +32,16 @@ function useAddNote() {
         localStorage.remove("accessToken");
         throw new Error(parsedResponse.error);
       }
+      toast.success("Note added", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (err) {
       setExpired(true);
     } finally {

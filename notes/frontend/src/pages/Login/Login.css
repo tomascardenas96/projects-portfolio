@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+
+.login-page__container {
+  background-image: url("../../../assets/pexels-lukas-1419923.jpg");
+  width: 100%;
+  height: 100svh;
+  background-size: cover;
+  display: grid;
+  place-content: center;
+}
+
+.login-page_form-container {
+  background-color: white;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: minmax(50rem, 40rem);
+  grid-template-rows: minmax(10rem, 25rem);
+  /* width: 50rem;
+  height: 25rem; */
+  background-image: url("../../../assets/lumber.jpg");
+  border-radius: 0.3rem;
+  box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.542);
+  padding: 0.25rem;
+}
+
+.login-page_form {
+  background: url("../../../assets/chalkboard_texture_mc2015_by_mattiamc_d8dbnac-pre.jpg");
+  display: grid;
+  place-content: center;
+}
+
+.login-page_form > p, .login-page_form > p > a {
+  font-size: 0.8rem;
+  text-decoration: underline;
+  color: #f0f6f6;
+  justify-self: center;
+  margin-top: 0.3rem;
+  cursor: pointer;
+}
+
+.login-page_form > div {
+  display: grid;
+  justify-items: center;
+}
+
+.login-page_form > div > h1 {
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  font-size: 3rem;
+}
+
+.login-page_form > div > form {
+  display: grid;
+  gap: 2rem;
+  width: 22rem;
+
+  & input[type="submit"] {
+    margin-top: 1rem;
+    height: 2.2rem;
+    border: none;
+    background-color: rgba(21, 21, 21, 0.877);
+    color: white;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+}
+
+.login-page_form > div > form label {
+  display: grid;
+  color: white;
+  font-size: 0.7rem;
+  gap: 0.2rem;
+  position: relative;
+
+  & p {
+    position: absolute;
+    color: rgb(237, 2, 2);
+    bottom: -1.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    left: .1rem;
+    font-size: .75rem;
+  }
+
+  & .warning-icon {
+    font-size: 1rem;
+  }
+
+  & input {
+    height: 1.8rem;
+    outline: none;
+    padding-left: 0.3rem;
+  }
+}

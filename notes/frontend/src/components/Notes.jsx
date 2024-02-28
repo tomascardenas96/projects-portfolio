@@ -3,6 +3,8 @@ import "./styles/Notes.css";
 import Note from "./Note";
 import useNotes from "../hooks/useNotes";
 import NewNote from "./NewNote";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Notes() {
   const { notes, loading, expired } = useNotes();
@@ -13,19 +15,25 @@ function Notes() {
       <section className="notes__container">
         {notes.length > 0 ? (
           <div className="notes">
-            {notes.slice().reverse().map((note) => (
-              <Note
-                key={note.note_id}
-                title={note.title}
-                description={note.description}
-                id={note.note_id}
-              />
-            ))}
+            {notes
+              .slice()
+              .reverse()
+              .map((note) => (
+                <Note
+                  key={note.note_id}
+                  title={note.title}
+                  description={note.description}
+                  id={note.note_id}
+                />
+              ))}
             {loading && <h1>Loading...</h1>}
           </div>
         ) : (
-          <h1>Aun no has agregado ninguna nota</h1>
+          <div className="empty-notes">
+            <h1>Aun no has agregado ninguna nota...</h1>
+          </div>
         )}
+        <ToastContainer />
       </section>
     </>
   );

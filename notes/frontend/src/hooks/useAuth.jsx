@@ -24,9 +24,6 @@ function useAuth() {
         }
       } catch (err) {
         setExpired(true);
-        setTimeout(() => {
-          location.reload();
-        }, 2000);
       } finally {
         setLoading(false);
       }

@@ -5,6 +5,7 @@ import SessionExpired from "../../components/SessionExpired";
 import Loader from "../../components/Loader";
 import "./Home.css";
 import Notes from "../../components/Notes";
+import LogOut from "../../components/LogOut";
 
 const Home = () => {
   const { accessToken, expired, loading } = useAuth();
@@ -15,7 +16,8 @@ const Home = () => {
   }
 
   return (
-    <section>
+    <section className="home-page__container">
+      <LogOut />
       <Notes />
       {expired && <SessionExpired />}
       {loading && <Loader />}

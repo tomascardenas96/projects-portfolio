@@ -1,49 +1,52 @@
 .new-note__container {
-    display: grid;
-    place-content: center;
-    padding: 2rem;
-    background-color: #25242c;
-    box-shadow: 1px 1px 1px 1px #25242c;
+  display: grid;
+  place-content: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  height: 17rem;
 }
 
 .new-note__container > form {
-    display: grid;
-    width: 30rem;
-    gap: 1rem;
+  display: grid;
+  width: 30rem;
+  gap: 1rem;
 
-    & input[type="submit"] {
-        border: none;
-        padding: .7rem;
-        font-size: .8rem;
-        cursor: pointer;
-        background-color: #e59638;
-        color: #fff;
-        border-radius: .2rem;
-    }
+  & input[type="submit"] {
+    border: none;
+    padding: 0.7rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background-color: #e59638;
+    color: #fff;
+    border-radius: 0.2rem;
+  }
 }
 
 .new-note__container > form label {
-    display: grid;
-    width: 100%;
-    font-size: .8rem;
-    color: #fff;
-    gap: .2rem;
+  display: grid;
+  width: 100%;
+  font-size: 0.8rem;
+  color: #fff;
+  gap: 0.2rem;
 
-    & input {
-        outline: none;
-        padding-left: .4rem;
-        font-size: .8rem;   
-        height: 2rem;
-        color: #25242c;
-    }
-    
-    & textarea{
-        resize: none;
-        height: 5rem;
-        font-size: .8rem;
-        outline: none;
-        padding-left: .4rem;
-        padding-top: .2rem;
-        color: #25242c;
-    }
+  & input {
+    outline: none;
+    padding-left: 0.4rem;
+    font-size: 0.8rem;
+    height: 2rem;
+    color: #25242c;
+  }
+
+  & textarea {
+    resize: none;
+    height: 5rem;
+    font-size: 0.8rem;
+    outline: none;
+    padding-left: 0.4rem;
+    padding-top: 0.2rem;
+    color: #25242c;
+  }
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import toast, { Toaster } from 'solid-toast';
+import { toast } from "react-toastify";
 
 function useDeleteNote(id) {
   const [error, setError] = useState(null);
@@ -24,8 +24,19 @@ function useDeleteNote(id) {
         setTimeout(() => {
           location.reload();
         }, 2000);
-        setSuccessDelete(true);
       }
+
+      toast.success("Note deleted succesfully", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setSuccessDelete(true);
     } catch (err) {
       setError(err);
     } finally {

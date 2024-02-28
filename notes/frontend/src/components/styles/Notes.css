@@ -1,10 +1,17 @@
 .notes__container {
-    padding: 2rem;
+    padding: 2rem 5rem;
 }
 
 .notes {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    gap: 1rem;
+    gap: 3rem;
+}
 
+.empty-notes {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.844);
+    margin-top: 3rem;
 }
