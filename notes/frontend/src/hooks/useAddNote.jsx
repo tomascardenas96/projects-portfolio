@@ -19,29 +19,29 @@ function useAddNote() {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:4000/api/v1/notes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify(newNote),
-      });
+      const response = await toast.promise(
+        fetch("http://localhost:4000/api/v1/notes", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${accessToken}`,
+          },
+          body: JSON.stringify(newNote),
+        }),
+        {
+          position: "bottom-right",
+          hideProgressBar: true,
+          autoClose: 1500,
+          pending: "Adding note",
+          success: "Note added succesfully",
+          error: "Note rejected 🤯",
+        }
+      );
       const parsedResponse = await response.json();
       if (parsedResponse.error) {
         localStorage.remove("accessToken");
         throw new Error(parsedResponse.error);
       }
-      toast.success("Note added", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
     } catch (err) {
       setExpired(true);
     } finally {

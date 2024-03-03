@@ -58,11 +58,11 @@ function Login() {
                 </p>
               )}
               </label>
-              <input type="submit" value="Ingresar" />
+              <input type="submit" value="Enter" />
             </form>
           </div>
           <p>
-            <a href="/register">Crear cuenta</a>
+            <a href="/register">Create new account!</a>
           </p>
         </div>
       </div>

@@ -30,10 +30,10 @@ function Notes() {
           </div>
         ) : (
           <div className="empty-notes">
-            <h1>Aun no has agregado ninguna nota...</h1>
+            <h1>You have not added a note yet...</h1>
           </div>
         )}
-        <ToastContainer />
+        <ToastContainer position="bottom-right" hideProgressBar autoClose={1500} />
       </section>
     </>
   );

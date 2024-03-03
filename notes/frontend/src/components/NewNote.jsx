@@ -28,7 +28,7 @@ function NewNote() {
             value={newNote.description}
           />
         </label>
-        <input type="submit" value="Agregar" />
+        <input type="submit" value="Add" />
       </form>
       
     </div>

@@ -11,13 +11,23 @@ function useDeleteNote(id) {
   const handleDeleteNote = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:4000/api/v1/notes/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${accessToken}`,
-        },
-      });
+      const response = await toast.promise(
+        fetch(`http://localhost:4000/api/v1/notes/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${accessToken}`,
+          },
+        }),
+        {
+          position: "bottom-right",
+          hideProgressBar: true,
+          autoClose: 1500,
+          pending: "Deleting note",
+          success: "Note deleted succesfully",
+          error: "Note rejected 🤯",
+        }
+      );
       const parsedResponse = await response.json();
       if (parsedResponse.error) {
         setExpired(true);
@@ -26,16 +36,6 @@ function useDeleteNote(id) {
         }, 2000);
       }
 
-      toast.success("Note deleted succesfully", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
       setSuccessDelete(true);
     } catch (err) {
       setError(err);
