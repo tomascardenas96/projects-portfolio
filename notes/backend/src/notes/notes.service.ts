@@ -1,4 +1,8 @@
-import { Injectable, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  BadRequestException,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -40,7 +44,17 @@ export class NotesService {
     return `This action updates a #${id} note`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} note`;
+  async remove(id: number) {
+    try {
+      const note = await this.noteRepository.findOne({
+        where: { note_id: id },
+      });
+      if (!note) {
+        throw new NotFoundException('Note not found');
+      }
+      return this.noteRepository.remove(note);
+    } catch (err) {
+      console.error(err);
+    }
   }
 }

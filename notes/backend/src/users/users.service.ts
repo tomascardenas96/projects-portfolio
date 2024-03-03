@@ -30,8 +30,8 @@ export class UsersService {
     return this.userRepository.find({where: { user_id: id }})
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  findAll() {
+    return this.userRepository.find();
   }
 
   remove(id: number) {
